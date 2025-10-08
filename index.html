@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor Al Forsan Cosmetics - Under Development</title>
+    <style>
+        /* --- CSS Starts Here --- */
+
+        /* Define Light Theme Variables (Default) */
+        :root {
+            --primary-color: #A3284B; /* Deep Pink/Maroon */
+            --secondary-color: #F8E8A6; /* Soft Gold/Cream for Countdown Box */
+            --text-color: #333333;
+            --background-color: #FFFFFF;
+            --container-bg-color: #FFFFFF;
+            --border-color: #A3284B;
+            --button-bg: #E0E0E0;
+            --button-text: #333333;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        /* Dark Theme Variables */
+        body.dark-theme {
+            --text-color: #EEEEEE;
+            --background-color: #121212;
+            --container-bg-color: #1E1E1E;
+            --border-color: #D35400; 
+            --secondary-color: #333333;
+            --button-bg: #3A3A3A;
+            --button-text: #F0F0F0;
+        }
+
+        /* General & Responsive Styles */
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            transition: background-color 0.5s, color 0.5s;
+            box-sizing: border-box; /* Include padding/border in element's total width/height */
+        }
+
+        .container {
+            width: 90%; /* Responsive width */
+            max-width: 600px;
+            padding: 40px 20px; /* Reduced side padding for small screens */
+            border: 3px solid var(--border-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: var(--container-bg-color);
+            transition: background-color 0.5s, border-color 0.5s;
+            position: relative;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2em; /* Slightly reduced for mobile */
+            margin-bottom: 0.5em;
+        }
+
+        h2 {
+            color: var(--text-color);
+            font-size: 1.3em; /* Slightly reduced for mobile */
+            margin-top: 0;
+            margin-bottom: 1.5em;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 2em;
+        }
+
+        /* Countdown Timer Styling */
+        .countdown {
+            margin: 30px 0;
+            padding: 15px 5px; /* Adjust padding */
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-around;
+            gap: 5px; /* Reduced gap */
+            transition: background-color 0.5s;
+        }
+
+        .countdown div {
+            flex: 1;
+            padding: 5px;
+        }
+
+        .countdown span.number {
+            display: block;
+            font-size: 2em; /* Reduced size for mobile */
+            font-weight: bold;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .countdown span.label {
+            display: block;
+            font-size: 0.7em; /* Reduced size for mobile */
+            text-transform: uppercase;
+            color: var(--text-color);
+            margin-top: 5px;
+        }
+        
+        /* Footer/Powered By Section */
+        .footer {
+            margin-top: 50px;
+            font-size: 0.8em; /* Reduced size for mobile */
+            color: var(--text-color);
+            transition: color 0.5s;
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Theme Changer Button Styling */
+        #theme-toggle {
+            position: absolute;
+            top: 10px; /* Adjusted position */
+            right: 10px; /* Adjusted position */
+            padding: 8px 12px; /* Adjusted padding */
+            font-size: 0.9em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Media Query for larger screens (optional, but good practice) */
+        @media (min-width: 600px) {
+            .container {
+                padding: 40px;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .countdown span.number {
+                font-size: 2.5em;
+            }
+            .countdown span.label {
+                font-size: 0.8em;
+            }
+            #theme-toggle {
+                top: 20px;
+                right: 20px;
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+        }
+        /* --- CSS Ends Here --- */
+    </style>
+</head>
+<body class="light-theme">
+
+    <div class="container">
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">
+            <span id="theme-icon">🌙</span> Dark Mode
+        </button>
+
+        <h1>Noor Al Forsan Cosmetics</h1>
+        <h2>Static Page: Launching Soon!</h2>
+        <p>This is a temporary landing page while our team develops the main website. We are putting the finishing touches on our beautiful new static website. Get ready to explore our products soon!</p>
+        
+        <div class="countdown">
+            <div>
+                <span class="number" id="days">00</span>
+                <span class="label">Days</span>
+            </div>
+            <div>
+                <span class="number" id="hours">00</span>
+                <span class="label">Hours</span>
+            </div>
+            <div>
+                <span class="number" id="minutes">00</span>
+                <span class="label">Minutes</span>
+            </div>
+            <div>
+                <span class="number" id="seconds">00</span>
+                <span class="label">Seconds</span>
+            </div>
+        </div>
+
+        <p>Follow us on social media for updates and sneak peeks!</p>
+    </div>
+
+    <div class="footer">
+        Website powered by <a href="http://voxora.in" target="_blank">voxora</a> (<a href="http://voxora.in" target="_blank">voxora.in</a>)
+    </div>
+
+    <script>
+        // --- JavaScript Starts Here ---
+
+        // 1. Countdown Timer Logic (3 days from now)
+        const countdown = () => {
+            const now = new Date();
+            // Launch date is exactly 3 days (72 hours) from load time
+            const launchDate = new Date(now.getTime() + (3 * 24 * 60 * 60 * 1000)).getTime(); 
+
+            const x = setInterval(function() {
+                const distance = launchDate - new Date().getTime();
+
+                // Time calculations
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Output the result
+                document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+                document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+                document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+
+                // If finished
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("days").innerHTML = "00";
+                    document.getElementById("hours").innerHTML = "00";
+                    document.getElementById("minutes").innerHTML = "00";
+                    document.getElementById("seconds").innerHTML = "00";
+                    // Display a launch message
+                    const countdownElement = document.querySelector('.countdown');
+                    countdownElement.innerHTML = "<h3>🎉 We are LIVE! Welcome to Noor Al Forsan Cosmetics!</h3>";
+                    countdownElement.style.fontSize = '1.2em';
+                }
+            }, 1000);
+        }
+
+        // 2. Theme Changer Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light-theme';
+        body.classList.add(savedTheme);
+        updateThemeButton(savedTheme);
+
+        function updateThemeButton(theme) {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (theme === 'dark-theme') {
+                themeToggle.innerHTML = '<span id="theme-icon">☀️</span> Light Mode';
+            } else {
+                themeToggle.innerHTML = '<span id="theme-icon">🌙</span> Dark Mode';
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-theme')) {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark-theme');
+                updateThemeButton('dark-theme');
+            } else {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                localStorage.setItem('theme', 'light-theme');
+                updateThemeButton('light-theme');
+            }
+        });
+
+        countdown();
+        // --- JavaScript Ends Here ---
+    </script>
+
+</body>
+</html>
