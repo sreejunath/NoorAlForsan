@@ -1,291 +1,527 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noor Al Forsan Cosmetics - Under Development</title>
-    <style>
-        /* --- CSS Starts Here --- */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noor Al Forsan | Premium Wholesale & Retail Cosmetics Dubai</title>
+<meta name="description" content="Noor Al Forsan Cosmetics offers premium beauty solutions for retail and wholesale in Dubai, UAE. Explore our luxury makeup and skincare products.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ----------------------------------- */
+/* 1. PREMIUM THEME RESET & VARIABLES */
+/* ----------------------------------- */
+:root {
+    --color-dark: #1A1A1A;     /* Deep Charcoal */
+    --color-gold: #B8860B;     /* Soft Gold Accent */
+    --color-light: #F8F8F8;    /* Creamy White Background */
+    --color-text: #333333;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
 
-        /* Define Light Theme Variables (Default) */
-        :root {
-            --primary-color: #A3284B; /* Deep Pink/Maroon */
-            --secondary-color: #F8E8A6; /* Soft Gold/Cream for Countdown Box */
-            --text-color: #333333;
-            --background-color: #FFFFFF;
-            --container-bg-color: #FFFFFF;
-            --border-color: #A3284B;
-            --button-bg: #E0E0E0;
-            --button-text: #333333;
-            --font-family: 'Arial', sans-serif;
-        }
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+    background: var(--color-light); 
+    color: var(--color-text); 
+    line-height: 1.7;
+    font-family: var(--font-body);
+}
+a {text-decoration:none; color:inherit; transition: color 0.3s;}
+ul {list-style:none;}
 
-        /* Dark Theme Variables */
-        body.dark-theme {
-            --text-color: #EEEEEE;
-            --background-color: #121212;
-            --container-bg-color: #1E1E1E;
-            --border-color: #D35400; 
-            --secondary-color: #333333;
-            --button-bg: #3A3A3A;
-            --button-text: #F0F0F0;
-        }
+/* Global Headings & Paragraphs */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    margin-bottom: 25px;
+}
+h1 {font-size: 3em;}
+h2 {font-size: 2em;}
+h3 {font-size: 1.5em;}
+p {margin-bottom: 15px;}
 
-        /* General & Responsive Styles */
-        body {
-            font-family: var(--font-family);
-            background-color: var(--background-color);
-            color: var(--text-color);
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 20px;
-            transition: background-color 0.5s, color 0.5s;
-            box-sizing: border-box; /* Include padding/border in element's total width/height */
-        }
+/* Global Container */
+.container {
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .container {
-            width: 90%; /* Responsive width */
-            max-width: 600px;
-            padding: 40px 20px; /* Reduced side padding for small screens */
-            border: 3px solid var(--border-color);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            background-color: var(--container-bg-color);
-            transition: background-color 0.5s, border-color 0.5s;
-            position: relative;
-        }
+/* Global Buttons */
+.btn {
+    padding: 14px 30px; 
+    border-radius: 2px; 
+    margin: 0 10px; 
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+.btn-primary {
+    background: var(--color-gold); 
+    color: var(--color-dark);
+    border: 2px solid var(--color-gold);
+}
+.btn-primary:hover {
+    background: transparent;
+    color: var(--color-gold);
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background: var(--color-dark);
+    color: var(--color-light); 
+    border: 2px solid var(--color-dark);
+}
+.btn-secondary:hover {
+    background: transparent;
+    color: var(--color-dark);
+    transform: translateY(-2px);
+}
 
-        h1 {
-            color: var(--primary-color);
-            font-size: 2.2em; /* Slightly reduced for mobile */
-            margin-bottom: 0.5em;
-        }
+/* ----------------------------------- */
+/* 2. HEADER */
+/* ----------------------------------- */
+header {
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    padding: 20px 5%; 
+    background: var(--color-light); 
+    position:sticky; 
+    top:0; 
+    z-index:100;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+header .logo {
+    font-size: 1.8em; 
+    font-weight: bold; 
+    color: var(--color-dark); 
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+}
+header nav ul {display:flex;}
+header nav ul li {margin-left: 30px;}
+header nav ul li a {
+    font-weight: 600; 
+    padding: 5px 0; 
+    position: relative;
+}
+header nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--color-gold);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s;
+}
+header nav ul li a.active:after, header nav ul li a:hover:after {
+    width: 100%;
+}
 
-        h2 {
-            color: var(--text-color);
-            font-size: 1.3em; /* Slightly reduced for mobile */
-            margin-top: 0;
-            margin-bottom: 1.5em;
-        }
+/* ----------------------------------- */
+/* 3. HERO */
+/* ----------------------------------- */
+.hero {
+    height: 90vh; 
+    background: url('https://via.placeholder.com/1920x900/1A1A1A/FFFFFF?text=Luxury+Cosmetics') center/cover no-repeat; 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    text-align:center; 
+    position:relative; 
+    color: var(--color-light);
+}
+.hero::after {
+    content:''; 
+    position:absolute; 
+    inset:0; 
+    background:rgba(0,0,0,0.6); /* Darker overlay for text contrast */
+}
+.hero-content {
+    position:relative; 
+    z-index:1;
+    max-width: 800px;
+    padding: 20px;
+}
+.hero h1 {
+    font-size: 4em; 
+    margin-bottom: 15px;
+    color: var(--color-light);
+}
+.hero p {
+    font-size: 1.5em; 
+    margin-bottom: 30px;
+    color: var(--color-light);
+    letter-spacing: 1px;
+}
 
-        p {
-            font-size: 1em;
-            line-height: 1.6;
-            margin-bottom: 2em;
-        }
+/* ----------------------------------- */
+/* 4. SECTIONS (General) */
+/* ----------------------------------- */
+section {padding: 80px 5%; text-align:center;}
+.about {background: var(--color-light);}
+.products {background: #ffffff;}
+.contact {background: var(--color-light);}
 
-        /* Countdown Timer Styling */
-        .countdown {
-            margin: 30px 0;
-            padding: 15px 5px; /* Adjust padding */
-            background-color: var(--secondary-color);
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-around;
-            gap: 5px; /* Reduced gap */
-            transition: background-color 0.5s;
-        }
+/* ----------------------------------- */
+/* 5. ABOUT */
+/* ----------------------------------- */
+.about ul {
+    margin: 30px auto; 
+    text-align: left;
+    max-width: 700px;
+    border-left: 3px solid var(--color-gold);
+    padding-left: 20px;
+}
+.about li {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+.about strong {
+    color: var(--color-dark);
+}
 
-        .countdown div {
-            flex: 1;
-            padding: 5px;
-        }
+/* ----------------------------------- */
+/* 6. PRODUCTS */
+/* ----------------------------------- */
+.category-buttons {margin-bottom: 40px;}
+.category-buttons button {
+    padding: 10px 25px; 
+    margin: 0 8px; 
+    border: 1px solid var(--color-dark); 
+    background: transparent; 
+    color: var(--color-dark); 
+    border-radius: 5px; 
+    cursor:pointer; 
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.category-buttons button:hover, .category-buttons button.active {
+    background: var(--color-dark); 
+    color: var(--color-light);
+}
+.product-grid {
+    display:grid; 
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+}
+.product-card {
+    background: var(--color-light); 
+    padding: 20px; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s; 
+    text-align:left;
+    overflow: hidden;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.product-card img {
+    width:100%; 
+    height: 250px;
+    object-fit: cover;
+    border-radius: 2px; 
+    margin-bottom: 15px;
+}
+.product-card h3 {
+    margin-bottom: 8px; 
+    color: var(--color-gold);
+    font-family: var(--font-body); /* Change heading font for product cards */
+}
+.product-card p {font-size: 0.9em; margin-bottom: 5px;}
+.product-card .type {
+    font-weight: bold; 
+    color: var(--color-dark); 
+    margin-top: 10px;
+    font-size: 0.95em;
+}
 
-        .countdown span.number {
-            display: block;
-            font-size: 2em; /* Reduced size for mobile */
-            font-weight: bold;
-            color: var(--primary-color);
-            line-height: 1;
-        }
+/* ----------------------------------- */
+/* 7. CONTACT */
+/* ----------------------------------- */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+.contact form {
+    flex: 1;
+    display:flex; 
+    flex-direction:column;
+}
+.contact form input, .contact form textarea {
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 2px;
+    font-size: 1em;
+}
+.contact-info {
+    flex: 1;
+}
+.contact-info p {
+    font-size: 1.1em;
+}
+.map {
+    margin-top: 30px;
+}
+.map iframe {
+    width:100%; 
+    height:300px; 
+    border: 1px solid var(--color-gold); 
+    border-radius: 2px;
+}
 
-        .countdown span.label {
-            display: block;
-            font-size: 0.7em; /* Reduced size for mobile */
-            text-transform: uppercase;
-            color: var(--text-color);
-            margin-top: 5px;
-        }
-        
-        /* Footer/Powered By Section */
-        .footer {
-            margin-top: 50px;
-            font-size: 0.8em; /* Reduced size for mobile */
-            color: var(--text-color);
-            transition: color 0.5s;
-        }
+/* ----------------------------------- */
+/* 8. FOOTER */
+/* ----------------------------------- */
+footer {
+    background: var(--color-dark); 
+    color: var(--color-light);
+    padding: 30px 5%; 
+    text-align: center;
+}
+footer p {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+footer .social-icons a {
+    margin: 0 15px; 
+    color: var(--color-gold);
+    font-weight: 600;
+}
+footer .social-icons a:hover {
+    color: var(--color-light);
+}
 
-        .footer a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
+/* ----------------------------------- */
+/* 9. RESPONSIVE DESIGN */
+/* ----------------------------------- */
+@media(max-width:1024px){
+    /* Tablet adjustments */
+    .hero h1 {font-size: 3em;}
+    .hero p {font-size: 1.3em;}
+}
 
-        /* Theme Changer Button Styling */
-        #theme-toggle {
-            position: absolute;
-            top: 10px; /* Adjusted position */
-            right: 10px; /* Adjusted position */
-            padding: 8px 12px; /* Adjusted padding */
-            font-size: 0.9em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            background-color: var(--button-bg);
-            color: var(--button-text);
-            transition: background-color 0.3s, color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+@media(max-width:768px){
+    /* Mobile adjustments */
+    header {
+        padding: 15px 5%;
+    }
+    header nav {
+        display: none; /* Hide navigation on small screens (can use a hamburger menu later) */
+    }
+    .hero {
+        height: 60vh;
+    }
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    .hero p {
+        font-size: 1.1em;
+    }
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-buttons .btn {
+        margin: 10px 0;
+        width: 80%;
+        text-align: center;
+    }
+    
+    /* Section padding */
+    section {padding: 60px 5%;}
 
-        /* Media Query for larger screens (optional, but good practice) */
-        @media (min-width: 600px) {
-            .container {
-                padding: 40px;
-            }
-            h1 {
-                font-size: 2.5em;
-            }
-            h2 {
-                font-size: 1.5em;
-            }
-            .countdown span.number {
-                font-size: 2.5em;
-            }
-            .countdown span.label {
-                font-size: 0.8em;
-            }
-            #theme-toggle {
-                top: 20px;
-                right: 20px;
-                padding: 10px 15px;
-                font-size: 1em;
-            }
-        }
-        /* --- CSS Ends Here --- */
-    </style>
+    /* Contact layout stack */
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .map iframe {height: 250px;}
+
+    /* Footer layout stack */
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    footer .social-icons {
+        margin-top: 15px;
+    }
+}
+</style>
 </head>
-<body class="light-theme">
+<body>
 
-    <div class="container">
-        <button id="theme-toggle" aria-label="Toggle Dark Mode">
-            <span id="theme-icon">🌙</span> Dark Mode
-        </button>
-        <h1>UNDER CONSTRUCTION</h1>
+<header>
+<div class="logo">Noor Al Forsan (UNDER CONSTRUCTION)</div>
+<nav>
+<ul>
+<li><a href="#home" class="active">Home</a></li>
+<li><a href="#about">About Us</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
 
-        <h1>Noor Al Forsan Cosmetics</h1>
-        <h2>Page: Launching Soon!</h2>
-        <p>This is a temporary landing page while our team develops the main website. We are putting the finishing touches on our beautiful new website. Get ready to explore our products soon!</p>
-        
-        <div class="countdown">
-            <div>
-                <span class="number" id="days">00</span>
-                <span class="label">Days</span>
-            </div>
-            <div>
-                <span class="number" id="hours">00</span>
-                <span class="label">Hours</span>
-            </div>
-            <div>
-                <span class="number" id="minutes">00</span>
-                <span class="label">Minutes</span>
-            </div>
-            <div>
-                <span class="number" id="seconds">00</span>
-                <span class="label">Seconds</span>
-            </div>
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>Experience Luxury. The Best of Beauty in Dubai.</h1>
+<p>Noor Al Forsan: Premium beauty solutions for discerning retail and wholesale clients.</p>
+<div class="hero-buttons">
+<a href="#products" class="btn btn-primary">Explore Products</a>
+<a href="#contact" class="btn btn-secondary">Wholesale Inquiry</a>
+</div>
+</div>
+</section>
+
+<section class="about" id="about">
+<h2>Our Commitment to Elegance and Quality</h2>
+<p>Noor Al Forsan Cosmetics TR is a licensed Services Agency in Dubai, offering premium cosmetics and beauty tools with a focus on both wholesale and retail excellence. We source and supply products that embody luxury and efficacy.</p>
+<ul>
+<li><strong>Trade Type / Legal Status:</strong> Services Agency</li>
+<li><strong>License Number:</strong> 911485 | <strong>Registration Number:</strong> 908290</li>
+<li><strong>Owners:</strong> Lenin Raj Viswanathan (India, 100% shares)</li>
+<li><strong>Local Service Agent:</strong> Ayden Eisa Mohamed Sabir Alameeri (UAE, 0% shares)</li>
+</ul>
+</section>
+
+<section class="products" id="products">
+<h2>The Collection</h2>
+<div class="category-buttons">
+<button class="active" onclick="filterProducts('all', this)">All</button>
+<button onclick="filterProducts('skincare', this)">Skincare</button>
+<button onclick="filterProducts('makeup', this)">Makeup</button>
+<button onclick="filterProducts('tools', this)">Tools & Accessories</button>
+</div>
+
+<div class="product-grid">
+
+<div class="product-card skincare">
+<img src="https://via.placeholder.com/300x300/CCCCCC/1A1A1A?text=Luxury+Cream" alt="Luxury Skincare Cream">
+<h3>Refined Night Cream</h3>
+<p>A deep-hydrating formula designed for overnight restoration and flawless skin.</p>
+<p class="type">Wholesale & Retail Available</p>
+</div>
+
+<div class="product-card skincare">
+<img src="https://via.placeholder.com/300x300/CCCCCC/1A1A1A?text=Face+Serum" alt="Hydrating Face Serum">
+<h3>Glow-Enhancing Serum</h3>
+<p>Infused with rare botanicals to bring out a natural, luminous glow.</p>
+<p class="type">Wholesale & Retail Available</p>
+</div>
+
+<div class="product-card makeup">
+<img src="https://via.placeholder.com/300x300/CCCCCC/1A1A1A?text=Matte+Lipstick" alt="Matte Lipstick">
+<h3>Velvet Matte Lipstick</h3>
+<p>Long-wear, richly pigmented lipstick for a bold and elegant finish.</p>
+<p class="type">Wholesale & Retail Available</p>
+</div>
+
+<div class="product-card makeup">
+<img src="https://via.placeholder.com/300x300/CCCCCC/1A1A1A?text=Foundation" alt="Liquid Foundation">
+<h3>Silk-Finish Foundation</h3>
+<p>Build-able coverage with an airbrushed, weightless feel.</p>
+<p class="type">Wholesale & Retail Available</p>
+</div>
+
+<div class="product-card tools">
+<img src="https://via.placeholder.com/300x300/CCCCCC/1A1A1A?text=Brush+Set" alt="Makeup Brush Set">
+<h3>Pro-Grade Brush Collection</h3>
+<p>A complete, handcrafted set for professional-level application.</p>
+<p class="type">Wholesale & Retail Available</p>
+</div>
+
+<div class="product-card tools">
+<img src="https://via.placeholder.com/300x300/CCCCCC/1A1A1A?text=Facial+Roller" alt="Facial Roller">
+<h3>Obsidian Facial Roller</h3>
+<p>Sculpt and de-puff the skin with this premium beauty tool.</p>
+<p class="type">Wholesale & Retail Available</p>
+</div>
+
+</div>
+</section>
+
+<section class="contact" id="contact">
+<h2>Get In Touch</h2>
+<div class="contact-container">
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message or Wholesale Inquiry" rows="5" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+    <div class="contact-info">
+        <h3>Contact Details</h3>
+        <p><strong>Phone:</strong> 0567805381</p>
+        <p><strong>Email:</strong> nooralforsancosmetics@gmail.com</p>
+        <p style="margin-top: 20px;"><strong>Location:</strong> Sharjah, UAE</p>
+        <div class="map">
+            <iframe src="https://maps.google.com/maps?q=Sharjah,UAE&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
         </div>
-
-        <p>Follow us on social media for updates and sneak peeks!</p>
     </div>
+</div>
+</section>
 
-    <div class="footer">
-        Website powered by <a href="http://voxora.in" target="_blank">voxora</a> (<a href="http://voxora.in" target="_blank">voxora.in</a>)
-    </div>
+<footer>
+<p>Noor Al Forsan Cosmetics | Licensed Beauty Distributor in UAE</p>
+<div class="social-icons">
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+<a href="#">LinkedIn</a>
+</div>
+<p style="margin-top: 15px;">© 2025 All Rights Reserved. License No: 911485 | Registration No: 908290</p>
+</footer>
 
-    <script>
-        // --- JavaScript Starts Here ---
-
-        // 1. Countdown Timer Logic (3 days from now)
-        const countdown = () => {
-            const now = new Date();
-            // Launch date is exactly 3 days (72 hours) from load time
-            const launchDate = new Date(now.getTime() + (3 * 24 * 60 * 60 * 1000)).getTime(); 
-
-            const x = setInterval(function() {
-                const distance = launchDate - new Date().getTime();
-
-                // Time calculations
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                // Output the result
-                document.getElementById("days").innerHTML = String(days).padStart(2, '0');
-                document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
-                document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
-                document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
-
-                // If finished
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("days").innerHTML = "00";
-                    document.getElementById("hours").innerHTML = "00";
-                    document.getElementById("minutes").innerHTML = "00";
-                    document.getElementById("seconds").innerHTML = "00";
-                    // Display a launch message
-                    const countdownElement = document.querySelector('.countdown');
-                    countdownElement.innerHTML = "<h3>🎉 We are LIVE! Welcome to Noor Al Forsan Cosmetics!</h3>";
-                    countdownElement.style.fontSize = '1.2em';
-                }
-            }, 1000);
-        }
-
-        // 2. Theme Changer Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-        
-        // Check for saved theme preference or default to light
-        const savedTheme = localStorage.getItem('theme') || 'light-theme';
-        body.classList.add(savedTheme);
-        updateThemeButton(savedTheme);
-
-        function updateThemeButton(theme) {
-            const themeToggle = document.getElementById('theme-toggle');
-            if (theme === 'dark-theme') {
-                themeToggle.innerHTML = '<span id="theme-icon">☀️</span> Light Mode';
-            } else {
-                themeToggle.innerHTML = '<span id="theme-icon">🌙</span> Dark Mode';
-            }
-        }
-
-        themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('light-theme')) {
-                body.classList.remove('light-theme');
-                body.classList.add('dark-theme');
-                localStorage.setItem('theme', 'dark-theme');
-                updateThemeButton('dark-theme');
-            } else {
-                body.classList.remove('dark-theme');
-                body.classList.add('light-theme');
-                localStorage.setItem('theme', 'light-theme');
-                updateThemeButton('light-theme');
-            }
+<script>
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e){
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
         });
+    });
+});
 
-        countdown();
-        // --- JavaScript Ends Here ---
-    </script>
+// Filter products and button active state
+function filterProducts(category, clickedButton) {
+    const products = document.querySelectorAll('.product-card');
+    products.forEach(p => {
+        if(category === 'all'){
+            p.style.display = 'block';
+        } else if(p.classList.contains(category)){
+            p.style.display = 'block';
+        } else {
+            p.style.display = 'none';
+        }
+    });
+
+    // Update active button state
+    const buttons = document.querySelectorAll('.category-buttons button');
+    buttons.forEach(button => button.classList.remove('active'));
+    clickedButton.classList.add('active');
+}
+
+// Set initial active state for 'All' button
+document.addEventListener('DOMContentLoaded', () => {
+    const allButton = document.querySelector('.category-buttons button:first-child');
+    if (allButton) {
+        allButton.classList.add('active');
+    }
+});
+</script>
 
 </body>
-
 </html>
-
