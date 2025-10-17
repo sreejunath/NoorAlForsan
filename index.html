@@ -56,8 +56,8 @@
     }
     .btn-primary { background: var(--color-gold); color: var(--color-dark); border: 2px solid var(--color-gold); box-shadow: var(--shadow-gold); }
     .btn-primary:hover { background: var(--color-dark); color: var(--color-gold); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6); }
-    .btn-secondary { background: transparent; color: var(--color-dark); border: 2px solid var(--color-dark); }
-    .btn-secondary:hover { background: var(--color-dark); color: var(--color-gold); transform: translateY(-3px); }
+    .btn-secondary { background: var(--color-gold); color: var(--color-dark); border: 2px solid var(--color-gold); box-shadow: var(--shadow-gold); }
+    .btn-secondary:hover { background: var(--color-dark); color: var(--color-gold); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6); }
     .btn-whatsapp { background: #25D366; color: white; padding: 10px 18px; border-radius: 6px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4); }
     .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(37, 211, 102, 0.6); }
 
@@ -85,13 +85,25 @@
     }
     #mobile-toggle:hover { color: var(--color-gold); }
 
-    /* HERO */
-    .hero {
-      min-height: 90vh; /* Reduced from 100vh for better mobile fit */
-      display: flex; align-items: center; color: var(--color-light);
-      background: url('https://images.unsplash.com/photo-1598440947619-2c35fc9aa903?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3') center/cover no-repeat;
-      position: relative;
-    }
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-light, #fff);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+/* Optional overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
     .hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.65); }
     .hero-content { position: relative; z-index: 2; max-width: 750px; padding: 6% 0; text-align: left; }
     .hero-content h1 { font-size: 3.2rem; color: var(--color-gold); margin-bottom: 0.8rem; }
@@ -276,7 +288,7 @@
     <section class="hero" id="home">
       <div class="hero-content container">
         <h1>Dubai's Epitome of Luxury Beauty.</h1>
-        <p>Noor Al Forsan: Premium beauty solutions for discerning retail and wholesale clients across the UAE and GCC. **Elegance meets efficacy.**</p>
+        <p>Noor Al Forsan: Premium beauty solutions for discerning retail and wholesale clients across the UAE and GCC.Elegance meets efficacy.</p>
         <div class="hero-buttons">
           <a href="#products" class="btn btn-primary">Explore Products</a>
           <a href="#contact" class="btn btn-secondary">Wholesale Inquiry</a>
@@ -405,7 +417,7 @@
           <div class="gallery-item"><img src="asset/lpandmakeup.jpg" alt="Lipstick and Makeup Products"></div>
           <div class="gallery-item"><img src="asset/perfume.jpg" alt="Luxury Perfume Bottle"></div>
         </div>
-        <p class="note" style="opacity:.85; margin-top:30px; color: var(--color-light);">NOTE: These images represent the luxury quality and aesthetic of the products we distribute.</p>
+        <p class="note" style="opacity:.85; margin-top:30px; color: var(--color-light);">NOTE: All images are for promotional and illustrative purposes only. Actual products may vary in appearance, color, or design.</p>
       </div>
     </section>
     
@@ -478,9 +490,9 @@
 
           <div class="contact-info">
             <h3 style="color:var(--color-gold); font-family:var(--font-heading);">Connect Directly</h3>
-            <p><i class="fas fa-phone-alt" style="color: var(--color-gold); margin-right: 5px;"></i> **Phone:** +971 56 780 5381</p>
-            <p><i class="fas fa-envelope" style="color: var(--color-gold); margin-right: 5px;"></i> **Email:** nooralforsancosmetics@gmail.com</p>
-            <p style="margin-top: 20px;"><i class="fas fa-map-marker-alt" style="color: var(--color-gold); margin-right: 5px;"></i> **Location:** Al Yarmook, Sharjah, UAE</p>
+            <p><i class="fas fa-phone-alt" style="color: var(--color-gold); margin-right: 5px;"></i> Phone:<br> +971 56 780 5381</p>
+            <p><i class="fas fa-envelope" style="color: var(--color-gold); margin-right: 5px;"></i> Email:<br> nooralforsancosmetics@gmail.com</p>
+            <p style="margin-top: 20px;"><i class="fas fa-map-marker-alt" style="color: var(--color-gold); margin-right: 5px;"></i> Location:<br> Al Yarmook, Sharjah, UAE</p>
 
             <a href="https://wa.me/971567805381?text=Hello%20Noor%20Al%20Forsan,%20I%20am%20interested%20in%20your%20products." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
               <i class="fab fa-whatsapp"></i> Chat on WhatsApp
@@ -616,6 +628,32 @@
       });
 
     });
+
+     const images = [
+    'asset/trans/1.jpg',
+    'asset/trans/2.jpg',
+    'asset/trans/3.jpg',
+    'asset/trans/4.jpg',
+    'asset/trans/5.jpg',
+    'asset/trans/6.jpg',
+    'asset/trans/7.jpg',
+    'asset/trans/8.jpg',
+    'asset/trans/9.jpg'
+  ];
+
+  let current = 0;
+  const hero = document.querySelector('.hero');
+
+  function changeBackground() {
+    hero.style.backgroundImage = `url('${images[current]}')`;
+    current = (current + 1) % images.length; // Loop back to start
+  }
+
+  // Initial background
+  changeBackground();
+
+  // Change every 5 seconds
+  setInterval(changeBackground, 3000);
   </script>
 
 </body>
