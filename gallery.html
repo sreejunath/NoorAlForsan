@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor Al Forsan - Exclusive Premium Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* 👑 Theme Variables for Ultra Premium Look */
+        :root {
+            --primary-gold: #C9A43E;
+            --accent-gold: #FFD700;
+            --bg-deep: #050505;
+            --bg-card: #151515;
+            --text-high: #E0E0E0;
+            --whatsapp-green: #25D366;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        /* 🎨 Global Body Styling */
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-deep);
+            color: var(--text-high);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Container for content structure */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-flex; /* Use flex for icon alignment */
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-gold);
+            color: var(--bg-deep);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        /* 💎 IMPROVED PROFESSIONAL HEADER STYLING */
+        .gallery-header {
+            background-color: var(--bg-deep);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--primary-gold);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between; /* Space out title and button */
+            align-items: center;
+        }
+
+        .header-title-group {
+            text-align: left; /* Align text to the left within its group */
+        }
+        
+        .gallery-header h1 {
+            font-family: var(--font-title);
+            font-size: 2.5em; /* Reduced size for elegance */
+            color: var(--accent-gold);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4); /* Refined shadow */
+            margin: 0;
+            line-height: 1;
+        }
+
+        .gallery-header p {
+            color: var(--primary-gold);
+            font-family: var(--font-body);
+            font-style: italic;
+            letter-spacing: 2px;
+            font-size: 0.9em;
+            margin: 5px 0 0 0;
+            opacity: 0.8;
+        }
+
+        /* ✨ Gallery Grid Styling (Responsive) */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* 🖼️ Card Styling for Images */
+        .gallery-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--primary-gold);
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 1),
+                        0 0 40px rgba(255, 215, 0, 0.4); /* Refined hover glow */
+        }
+
+        /* 📐 Aspect Ratio Fix for Image Sizing (16:9) */
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+            opacity: 0.9;
+        }
+
+        /* Card Content and Button */
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .book-button {
+            display: inline-block;
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 12px 25px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .book-button:hover {
+            background-color: #1DA851;
+            transform: translateY(-2px);
+        }
+
+        /* 💡 Lightbox (Modal) Styles (Unchanged) */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 900px;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.7);
+            animation: zoom 0.6s;
+        }
+        
+        @keyframes zoom {
+          from {transform: scale(0.1)} 
+          to {transform: scale(1)}
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: var(--primary-gold);
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 210;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: var(--accent-gold);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* 📱 Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .gallery-header {
+                flex-direction: column; /* Stack button and title vertically */
+                align-items: flex-start;
+                padding: 15px 15px 10px;
+            }
+            
+            .header-title-group {
+                margin-bottom: 10px;
+            }
+
+            .gallery-header h1 {
+                font-size: 1.8em; /* Smaller font on mobile */
+                letter-spacing: 5px;
+            }
+
+            .gallery-header p {
+                font-size: 0.8em;
+            }
+            
+            .btn {
+                align-self: flex-start; /* Align button to the left on mobile */
+            }
+
+            .gallery-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px 15px;
+            }
+            .lightbox-content {
+                width: 95%;
+            }
+            .close-btn {
+                top: 5px;
+                right: 20px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- IMPROVED: Combined Header/Navigation for better layout on all screen sizes -->
+    <header class="gallery-header">
+        <div class="header-title-group">
+            <h1>NOOR AL FORSAN</h1>
+            <p>A Showcase of Premium Excellence</p>
+        </div>
+        
+        <a href="index.html" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Home
+        </a>
+    </header>
+
+    <main class="gallery-container">
+        
+        <!-- Image Cards remain the same -->
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img1.jpeg')">
+                <img src="asset/gallery/img1.jpeg" alt="Noor Al Forsan Image 1">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img2.jpeg')">
+                <img src="asset/gallery/img2.jpeg" alt="Noor Al Forsan Image 2">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img3.jpeg')">
+                <img src="asset/gallery/img3.jpeg" alt="Noor Al Forsan Image 3">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img4.jpeg')">
+                <img src="asset/gallery/img4.jpeg" alt="Noor Al Forsan Image 4">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img5.jpeg')">
+                <img src="asset/gallery/img5.jpeg" alt="Noor Al Forsan Image 5">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img6.jpeg')">
+                <img src="asset/gallery/img6.jpeg" alt="Noor Al Forsan Image 6">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img7.jpeg')">
+                <img src="asset/gallery/img7.jpeg" alt="Noor Al Forsan Image 7">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img8.jpeg')">
+                <img src="asset/gallery/img8.jpeg" alt="Noor Al Forsan Image 8">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img9.jpeg')">
+                <img src="asset/gallery/img9.jpeg" alt="Noor Al Forsan Image 9">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img10.jpeg')">
+                <img src="asset/gallery/img10.jpeg" alt="Noor Al Forsan Image 10">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img11.jpeg')">
+                <img src="asset/gallery/img11.jpeg" alt="Noor Al Forsan Image 11">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img12.jpeg')">
+                <img src="asset/gallery/img12.jpeg" alt="Noor Al Forsan Image 12">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img13.jpeg')">
+                <img src="asset/gallery/img13.jpeg" alt="Noor Al Forsan Image 13">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img14.jpeg')">
+                <img src="asset/gallery/img14.jpeg" alt="Noor Al Forsan Image 14">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img15.jpeg')">
+                <img src="asset/gallery/img15.jpeg" alt="Noor Al Forsan Image 15">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img16.jpeg')">
+                <img src="asset/gallery/img16.jpeg" alt="Noor Al Forsan Image 16">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img17.jpeg')">
+                <img src="asset/gallery/img17.jpeg" alt="Noor Al Forsan Image 17">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img18.jpeg')">
+                <img src="asset/gallery/img18.jpeg" alt="Noor Al Forsan Image 18">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img19.jpeg')">
+                <img src="asset/gallery/img19.jpeg" alt="Noor Al Forsan Image 19">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img20.jpeg')">
+                <img src="asset/gallery/img20.jpeg" alt="Noor Al Forsan Image 20">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img21.jpeg')">
+                <img src="asset/gallery/img21.jpeg" alt="Noor Al Forsan Image 21">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img22.jpeg')">
+                <img src="asset/gallery/img22.jpeg" alt="Noor Al Forsan Image 22">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img23.jpeg')">
+                <img src="asset/gallery/img23.jpeg" alt="Noor Al Forsan Image 23">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img24.jpeg')">
+                <img src="asset/gallery/img24.jpeg" alt="Noor Al Forsan Image 24">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img25.jpeg')">
+                <img src="asset/gallery/img25.jpeg" alt="Noor Al Forsan Image 25">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img26.jpeg')">
+                <img src="asset/gallery/img26.jpeg" alt="Noor Al Forsan Image 26">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img27.jpeg')">
+                <img src="asset/gallery/img27.jpeg" alt="Noor Al Forsan Image 27">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img28.jpeg')">
+                <img src="asset/gallery/img28.jpeg" alt="Noor Al Forsan Image 28">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img29.jpeg')">
+                <img src="asset/gallery/img29.jpeg" alt="Noor Al Forsan Image 29">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img30.jpeg')">
+                <img src="asset/gallery/img30.jpeg" alt="Noor Al Forsan Image 30">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img31.jpeg')">
+                <img src="asset/gallery/img31.jpeg" alt="Noor Al Forsan Image 31">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img32.jpeg')">
+                <img src="asset/gallery/img32.jpeg" alt="Noor Al Forsan Image 32">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img33.jpeg')">
+                <img src="asset/gallery/img33.jpeg" alt="Noor Al Forsan Image 33">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img34.jpeg')">
+                <img src="asset/gallery/img34.jpeg" alt="Noor Al Forsan Image 34">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img35.jpeg')">
+                <img src="asset/gallery/img35.jpeg" alt="Noor Al Forsan Image 35">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img36.jpeg')">
+                <img src="asset/gallery/img36.jpeg" alt="Noor Al Forsan Image 36">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img37.jpeg')">
+                <img src="asset/gallery/img37.jpeg" alt="Noor Al Forsan Image 37">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img38.jpeg')">
+                <img src="asset/gallery/img38.jpeg" alt="Noor Al Forsan Image 38">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img39.jpeg')">
+                <img src="asset/gallery/img39.jpeg" alt="Noor Al Forsan Image 39">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-wrapper" onclick="openLightbox('asset/gallery/img40.jpeg')">
+                <img src="asset/gallery/img40.jpeg" alt="Noor Al Forsan Image 40">
+            </div>
+            <div class="card-content">
+                <a class="book-button" href="https://wa.me/+971567805381?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20after%20seeing%20your%20gallery." target="_blank">Book Now (WhatsApp)</a>
+            </div>
+        </div>
+
+        </main>
+
+    <div id="imageLightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+    </div>
+
+    <script>
+        // Get the modal, the image inside it, and the close button
+        var modal = document.getElementById("imageLightbox");
+        var modalImg = document.getElementById("lightboxImage");
+
+        // Function to open the lightbox
+        function openLightbox(imageSrc) {
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+        }
+
+        // Function to close the lightbox when clicking the close button or the background
+        function closeLightbox() {
+            modal.style.display = "none";
+        }
+        
+        // Close the modal when the user presses the ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+        });
+    </script>
+
+</body>
+</html>
